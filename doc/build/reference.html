@@ -1,0 +1,963 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>API reference &#8212; ziwia 0.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="To-Do List" href="todo.html" />
+    <link rel="prev" title="Basic Usage" href="basic_usage.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="todo.html" title="To-Do List"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="basic_usage.html" title="Basic Usage"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ziwia 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api-reference">
+<span id="reference"></span><h1>API reference<a class="headerlink" href="#api-reference" title="Permalink to this headline">¶</a></h1>
+<p>This page contains documentation of all methods available in ziwia.</p>
+<table border="1" class="longtable docutils">
+<colgroup>
+<col width="10%" />
+<col width="90%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api" title="ziwia.Api"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api</span></code></a></td>
+<td>This class is responsible for creatin Kraken API calls.</td>
+</tr>
+<tr class="row-even"><td><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.__init__</span></code></td>
+<td>Constructor.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.public</span></code></a></td>
+<td>Creates a public API call.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.time" title="ziwia.Api.time"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.time</span></code></a></td>
+<td>Gets current server time.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.assets" title="ziwia.Api.assets"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.assets</span></code></a></td>
+<td>Returns Assets from Kraken.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.asset_pairs" title="ziwia.Api.asset_pairs"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.asset_pairs</span></code></a></td>
+<td>Returns Assets Pairs from Kraken.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.ticker" title="ziwia.Api.ticker"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.ticker</span></code></a></td>
+<td>Gets pair name ticker values like.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.ohlc" title="ziwia.Api.ohlc"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.ohlc</span></code></a></td>
+<td>Returns OLHC asset pairs values.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.depth" title="ziwia.Api.depth"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.depth</span></code></a></td>
+<td>Returns market depth for selected asset pairs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.trades" title="ziwia.Api.trades"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.trades</span></code></a></td>
+<td>Get recent trades of selected asset pairs.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.spread" title="ziwia.Api.spread"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.spread</span></code></a></td>
+<td>Get recent spread data of selected asset pairs.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.private" title="ziwia.Api.private"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.private</span></code></a></td>
+<td>Perform a private API call.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.balance" title="ziwia.Api.balance"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.balance</span></code></a></td>
+<td>Gets User account balance in all currencies.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.trade_balance" title="ziwia.Api.trade_balance"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.trade_balance</span></code></a></td>
+<td>Gets User trade balance.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.open_orders" title="ziwia.Api.open_orders"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.open_orders</span></code></a></td>
+<td>Gets User opened orders.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.closed_orders" title="ziwia.Api.closed_orders"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.closed_orders</span></code></a></td>
+<td>Returns closed orders according to parameters.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.query_orders" title="ziwia.Api.query_orders"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.query_orders</span></code></a></td>
+<td>Returns orders info.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.trades_history" title="ziwia.Api.trades_history"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.trades_history</span></code></a></td>
+<td>Gets trades history.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.query_trades" title="ziwia.Api.query_trades"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.query_trades</span></code></a></td>
+<td>Returns trade info.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.open_positions" title="ziwia.Api.open_positions"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.open_positions</span></code></a></td>
+<td>Returns open positions list.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.ledgers" title="ziwia.Api.ledgers"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.ledgers</span></code></a></td>
+<td>Returns ledgers list.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.query_ledgers" title="ziwia.Api.query_ledgers"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.query_ledgers</span></code></a></td>
+<td>Returns ledger info.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.trade_volume" title="ziwia.Api.trade_volume"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.trade_volume</span></code></a></td>
+<td>Gets trade volume.</td>
+</tr>
+<tr class="row-even"><td><a class="reference internal" href="#ziwia.Api.add_order" title="ziwia.Api.add_order"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.add_order</span></code></a></td>
+<td>Adds exchange order to your account.</td>
+</tr>
+<tr class="row-odd"><td><a class="reference internal" href="#ziwia.Api.cancel_order" title="ziwia.Api.cancel_order"><code class="xref py py-obj docutils literal"><span class="pre">ziwia.Api.cancel_order</span></code></a></td>
+<td>Cancels order.</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="methods">
+<h2>Methods<a class="headerlink" href="#methods" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="ziwia.Api">
+<em class="property">class </em><code class="descclassname">ziwia.</code><code class="descname">Api</code><span class="sig-paren">(</span><em>public_key=''</em>, <em>private_key=''</em>, <em>timeout=30</em>, <em>proxy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class is responsible for creatin Kraken API calls. Ziwia 0.2 supports Kraken API version 0. 
+It exposes two basic methods - <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> which calls public part of API. It does not require
+you to fill <strong>public</strong> and <strong>private</strong> keys. Second one is <a class="reference internal" href="#ziwia.Api.private" title="ziwia.Api.private"><code class="xref py py-meth docutils literal"><span class="pre">private()</span></code></a> method which, as name
+suggests, calls private part.</p>
+<p>Apart of these two methods, there are a few ones supporting direct requests. They check inputs and
+sometimes could save you some time testing your application.</p>
+<dl class="method">
+<dt id="ziwia.Api.public">
+<code class="descname">public</code><span class="sig-paren">(</span><em>request</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.public" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a public API call. It does not require public and private keys to be set.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> (<em>str</em>) – One of <code class="docutils literal"><span class="pre">Time</span></code>, <code class="docutils literal"><span class="pre">Assets</span></code>, <code class="docutils literal"><span class="pre">AssetPairs</span></code>, <code class="docutils literal"><span class="pre">Ticker</span></code>, <code class="docutils literal"><span class="pre">OHLC</span></code>, <code class="docutils literal"><span class="pre">Depth</span></code>,                                 <code class="docutils literal"><span class="pre">Trades</span></code> and <code class="docutils literal"><span class="pre">Spread</span></code>.</li>
+<li><strong>parameters</strong> (<em>dict</em>) – Additional parameters for each request. See Kraken documentation for more information.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">JSON object representing Kraken API response.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="docutils literal"><span class="pre">ValueError</span></code>, if request string is not valid. <code class="docutils literal"><span class="pre">ConnectionError</span></code> and                                 <code class="docutils literal"><span class="pre">ConnectionTimeout</span></code> on connection problem.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.time">
+<code class="descname">time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.time" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets current server time. See <a class="reference external" href="https://www.kraken.com/help/api#get-server-time">Kraken documentation.</a></p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>  
+    <span class="nt">&quot;error&quot;</span><span class="p">:[</span>  
+    
+    <span class="p">],</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:{</span>  
+        <span class="nt">&quot;rfc1123&quot;</span><span class="p">:</span><span class="s2">&quot;Wed, 10 May 17 10:32:24 +0000&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;unixtime&quot;</span><span class="p">:</span><span class="mi">1494412344</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">Any of <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method exceptions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.assets">
+<code class="descname">assets</code><span class="sig-paren">(</span><em>assets=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.assets" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Assets from Kraken. See <a class="reference external" href="https://www.kraken.com/help/api#get-asset-info">Kraken documentation</a></p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{  
+    &quot;error&quot;:[  
+
+    ],
+    &quot;result&quot;:{  
+        &quot;XMLN&quot;:{  
+            &quot;altname&quot;:&quot;MLN&quot;,
+            &quot;decimals&quot;:10,
+            &quot;display_decimals&quot;:5,
+            &quot;aclass&quot;:&quot;currency&quot;
+        },
+        
+        ...
+    }
+}
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>assets</strong> (<em>str</em>) – Comma separated list of assets you are interested in, or empty for all.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Same exceptions as <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.asset_pairs">
+<code class="descname">asset_pairs</code><span class="sig-paren">(</span><em>info='info'</em>, <em>pairs=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.asset_pairs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns Assets Pairs from Kraken. See <a class="reference external" href="https://www.kraken.com/help/api#get-tradable-pairs">Kraken documentation</a>.</p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{  
+    &quot;error&quot;:[  
+
+    ],
+    &quot;result&quot;:{  
+        &quot;XXRPXXBT&quot;:{  
+            &quot;pair_decimals&quot;:8,
+            &quot;lot&quot;:&quot;unit&quot;,
+            &quot;margin_call&quot;:80,
+            &quot;fees_maker&quot;:[  
+                [  
+                    0,
+                    0.16
+                ],
+                ...
+            ],
+            &quot;altname&quot;:&quot;XRPXBT&quot;,
+            &quot;quote&quot;:&quot;XXBT&quot;,
+            &quot;fees&quot;:[  
+                [  
+                    0,
+                    0.26
+                ],
+                ...
+            ],
+            &quot;aclass_quote&quot;:&quot;currency&quot;,
+            &quot;margin_stop&quot;:40,
+            &quot;base&quot;:&quot;XXRP&quot;,
+            &quot;lot_multiplier&quot;:1,
+            &quot;fee_volume_currency&quot;:&quot;ZUSD&quot;,
+            &quot;aclass_base&quot;:&quot;currency&quot;,
+            &quot;leverage_sell&quot;:[  
+
+            ],
+            &quot;leverage_buy&quot;:[  
+
+            ],
+            &quot;lot_decimals&quot;:8
+        },
+        ...
+    }
+}
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>info</strong> – One of <code class="docutils literal"><span class="pre">info</span></code>, <code class="docutils literal"><span class="pre">leverage</span></code>, <code class="docutils literal"><span class="pre">fees</span></code>, <code class="docutils literal"><span class="pre">margin</span></code>.</li>
+<li><strong>pairs</strong> – Comma separated list of asset pairs you are interested in, or empty for all.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValueError if info parameter is not allowed.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.ticker">
+<code class="descname">ticker</code><span class="sig-paren">(</span><em>pairs</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.ticker" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets pair name ticker values like. See <a class="reference external" href="https://www.kraken.com/help/api#get-ticker-info">Kraken documentation</a>.</p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span><span class="p">{</span>  
+    <span class="nt">&quot;error&quot;</span><span class="p">:[</span>  
+
+    <span class="p">],</span>
+    <span class="nt">&quot;result&quot;</span><span class="p">:{</span>  
+        <span class="nt">&quot;XZECZEUR&quot;</span><span class="p">:{</span>  
+            <span class="nt">&quot;t&quot;</span><span class="p">:[</span>  
+                <span class="mi">789</span><span class="p">,</span>
+                <span class="mi">1563</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;h&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;93.88889&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;93.88889&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;l&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;83.30000&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;82.90067&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;a&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;91.13167&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1.000&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;b&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;91.13166&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;1.000&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;v&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;1409.83478992&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;3185.73131989&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;p&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;90.08671&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;87.74001&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;c&quot;</span><span class="p">:[</span>  
+                <span class="s2">&quot;91.13068&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;3.23282073&quot;</span>
+            <span class="p">],</span>
+            <span class="nt">&quot;o&quot;</span><span class="p">:</span><span class="s2">&quot;85.87561&quot;</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>pairs</strong> (<em>str</em>) – Comma separated list of asset pairs you are insterested in.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">All of <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method exceptions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.ohlc">
+<code class="descname">ohlc</code><span class="sig-paren">(</span><em>pairs</em>, <em>interval=1</em>, <em>since=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.ohlc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns OLHC asset pairs values. See <a class="reference external" href="https://www.kraken.com/help/api#get-ohlc-data">Kraken documentation</a>.</p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{  
+    &quot;error&quot;:[  
+
+    ],
+    &quot;result&quot;:{  
+        &quot;last&quot;:1494422340,
+        &quot;XZECZEUR&quot;:[  
+            [  
+                1494379260,
+                &quot;86.93479&quot;,
+                &quot;86.93479&quot;,
+                &quot;86.93479&quot;,
+                &quot;86.93479&quot;,
+                &quot;0.00000&quot;,
+                &quot;0.00000000&quot;,
+                0
+            ],
+            ...
+        ]
+    }
+}
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pairs</strong> (<em>str</em>) – Comma separated list of asset pairs you are insterested in, or empty for all.</li>
+<li><strong>interval</strong> (<em>int</em>) – One of 1, 5, 15, 30, 60, 240, 1440, 10080 or 21600 representing time frame in minutes.</li>
+<li><strong>since</strong> (<em>int</em>) – ID of the last OLHC record since which you would like to get OLHC info, of zero for no limit.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.depth">
+<code class="descname">depth</code><span class="sig-paren">(</span><em>pairs</em>, <em>count=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.depth" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns market depth for selected asset pairs. See <a class="reference external" href="https://www.kraken.com/help/api#get-order-book">Kraken documentation</a>.</p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{  
+    &quot;error&quot;:[  
+
+    ],
+    &quot;result&quot;:{  
+        &quot;XZECZEUR&quot;:{  
+            &quot;asks&quot;:[  
+                [  
+                    &quot;89.92088&quot;,
+                    &quot;34.910&quot;,
+                    1494422730
+                ],
+                ...
+            ],
+            &quot;bids&quot;:[  
+                [  
+                    &quot;88.42616&quot;,
+                    &quot;4.755&quot;,
+                    1494422729
+                ],
+                ...
+            ]
+        }
+    }
+}
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pairs</strong> (<em>str</em>) – Comma separated list of asset pairs you are insterested in, or empty for all.</li>
+<li><strong>count</strong> (<em>int</em>) – Maximum number of bids/asks or zero for no limit.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.trades">
+<code class="descname">trades</code><span class="sig-paren">(</span><em>pairs</em>, <em>since=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.trades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get recent trades of selected asset pairs. See <a class="reference external" href="https://www.kraken.com/help/api#get-recent-trades">Kraken documentation</a>.</p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{  
+    &quot;error&quot;:[  
+
+    ],
+    &quot;result&quot;:{  
+        &quot;last&quot;:&quot;1494423192560021193&quot;,
+        &quot;XZECZEUR&quot;:[  
+            [  
+                &quot;86.20035&quot;,
+                &quot;0.44929000&quot;,
+                1494369147.0533,
+                &quot;b&quot;,
+                &quot;l&quot;,
+                &quot;&quot;
+            ],
+            ...
+        ]
+    }
+}
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pairs</strong> (<em>str</em>) – Comma separated list of asset pairs you are insterested in, or empty for all.</li>
+<li><strong>since</strong> (<em>int</em>) – ID of the last OLHC record since which you would like to get OLHC info, or zero for no limit.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.spread">
+<code class="descname">spread</code><span class="sig-paren">(</span><em>pairs</em>, <em>since=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.spread" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get recent spread data of selected asset pairs. See <a class="reference external" href="https://www.kraken.com/help/api#get-recent-spread-data">Kraken documentation</a>.</p>
+<p>Output example:</p>
+<div class="highlight-json"><div class="highlight"><pre><span></span>{  
+    &quot;error&quot;:[  
+
+    ],
+    &quot;result&quot;:{  
+        &quot;XZECZEUR&quot;:[  
+            [  
+                1494423011,
+                &quot;88.42539&quot;,
+                &quot;88.91550&quot;
+            ],
+            ...
+        ],
+        &quot;last&quot;:1494423011
+    }
+}
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pairs</strong> (<em>str</em>) – Comma separated list of asset pairs you are insterested in, or empty for all.</li>
+<li><strong>since</strong> (<em>int</em>) – ID of the last OLHC record since which you would like to get OLHC info, of zero for no limit.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of <a class="reference internal" href="#ziwia.Api.public" title="ziwia.Api.public"><code class="xref py py-meth docutils literal"><span class="pre">public()</span></code></a> method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.private">
+<code class="descname">private</code><span class="sig-paren">(</span><em>request</em>, <em>parameters=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.private" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform a private API call.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Warning:</th><td class="field-body"><p class="first">Calling this function requires public and private keys to be set in class constructor.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>request</strong> – One of <code class="docutils literal"><span class="pre">Balance</span></code>, <code class="docutils literal"><span class="pre">TradeBalance</span></code>, <code class="docutils literal"><span class="pre">OpenOrders</span></code>, <code class="docutils literal"><span class="pre">ClosedOrders</span></code>, <code class="docutils literal"><span class="pre">QueryOrders</span></code>,                             <code class="docutils literal"><span class="pre">TradesHistory</span></code>, <code class="docutils literal"><span class="pre">QueryTrades</span></code>, <code class="docutils literal"><span class="pre">OpenPositions</span></code>, <code class="docutils literal"><span class="pre">Ledgers</span></code>, <code class="docutils literal"><span class="pre">QueryLedgers</span></code>,                             <code class="docutils literal"><span class="pre">TradeVolume</span></code>, <code class="docutils literal"><span class="pre">AddOrder</span></code>, <code class="docutils literal"><span class="pre">CancelOrder</span></code>.</li>
+<li><strong>parameters</strong> – Additional parameters for each request. See Kraken documentation for more information.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">A JSON object representing Kraken API response.</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">ValueError is request string is not supported. ConnectionError and ConnectionTimeout on                             connection problem.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.balance">
+<code class="descname">balance</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets User account balance in all currencies. See <a class="reference external" href="https://www.kraken.com/help/api#get-account-balance">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body">Any of private method exceptions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.trade_balance">
+<code class="descname">trade_balance</code><span class="sig-paren">(</span><em>asset='ZUSD'</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.trade_balance" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets User trade balance. See <a class="reference external" href="https://www.kraken.com/help/api#get-trade-balance">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>asset</strong> – Base asset used to determine balance.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Any of private method exceptions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.open_orders">
+<code class="descname">open_orders</code><span class="sig-paren">(</span><em>trades=False</em>, <em>userref=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.open_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets User opened orders. See <a class="reference external" href="https://www.kraken.com/help/api#get-open-orders">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trades</strong> – Include trades in output? True/False.</li>
+<li><strong>userref</strong> – Restrict results to given user reference ID.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.closed_orders">
+<code class="descname">closed_orders</code><span class="sig-paren">(</span><em>trades=False</em>, <em>userref=''</em>, <em>start=''</em>, <em>end=''</em>, <em>offset=''</em>, <em>closetime='both'</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.closed_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns closed orders according to parameters. See <a class="reference external" href="https://www.kraken.com/help/api#get-closed-orders">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trades</strong> – Include trades in response?</li>
+<li><strong>userref</strong> – Restrict response to given user reference ID.</li>
+<li><strong>start</strong> – Starting timestamp or order ID.</li>
+<li><strong>end</strong> – End timestamp or order ID.</li>
+<li><strong>offset</strong> – Result offset.</li>
+<li><strong>closetime</strong> – Which time to use. One of <code class="docutils literal"><span class="pre">open</span></code>, <code class="docutils literal"><span class="pre">close</span></code>, <code class="docutils literal"><span class="pre">both</span></code>.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.query_orders">
+<code class="descname">query_orders</code><span class="sig-paren">(</span><em>trades=False</em>, <em>userref=''</em>, <em>txid=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.query_orders" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns orders info. See <a class="reference external" href="https://www.kraken.com/help/api#query-orders-info">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trades</strong> – Include trades in output?</li>
+<li><strong>userref</strong> – User reference ID.</li>
+<li><strong>txid</strong> – Comma separated list of transaction IDs. Max 2O.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.trades_history">
+<code class="descname">trades_history</code><span class="sig-paren">(</span><em>ttype='all'</em>, <em>trades=False</em>, <em>start=''</em>, <em>end=''</em>, <em>offset=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.trades_history" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets trades history. See <a class="reference external" href="https://www.kraken.com/help/api#get-trades-history">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>ttype</strong> – Trade type. Method checks right input - it can be one of <code class="docutils literal"><span class="pre">all</span></code>, <code class="docutils literal"><span class="pre">any</span></code>, <code class="docutils literal"><span class="pre">closed</span></code>, <code class="docutils literal"><span class="pre">no</span></code>.</li>
+<li><strong>trades</strong> – Include trades related to position in result?</li>
+<li><strong>start</strong> – Unix timestamp or trade ID.</li>
+<li><strong>end</strong> – Unix timestamp of trade ID.</li>
+<li><strong>offset</strong> – History offset.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.query_trades">
+<code class="descname">query_trades</code><span class="sig-paren">(</span><em>trades=False</em>, <em>txid=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.query_trades" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns trade info. See <a class="reference external" href="https://www.kraken.com/help/api#query-trades-info">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>trades</strong> – Include trades related to position in response.</li>
+<li><strong>txid</strong> – Comma separated list of transaction IDs. Max 2O.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.open_positions">
+<code class="descname">open_positions</code><span class="sig-paren">(</span><em>docalcs=False</em>, <em>txid=''</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.open_positions" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns open positions list. See <a class="reference external" href="https://www.kraken.com/help/api#get-open-positions">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>txid</strong> – Comma delimited list of transaction IDs to restrict output to</li>
+<li><strong>docalcs</strong> – Include profit/loss calculations.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.ledgers">
+<code class="descname">ledgers</code><span class="sig-paren">(</span><em>asset=''</em>, <em>ltype='all'</em>, <em>start=0</em>, <em>end=0</em>, <em>offset=0</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.ledgers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns ledgers list. See <a class="reference external" href="https://www.kraken.com/help/api#get-ledgers-info">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>asset</strong> (<em>str</em>) – Comma delimited list of assets to restrict output to.</li>
+<li><strong>ltype</strong> (<em>str</em>) – Type of ledger to retrieve. One of <code class="docutils literal"><span class="pre">all</span></code>, <code class="docutils literal"><span class="pre">deposit</span></code>, <code class="docutils literal"><span class="pre">withdrawal</span></code> ,                                     <code class="docutils literal"><span class="pre">trade</span></code> and <code class="docutils literal"><span class="pre">margin</span></code>.</li>
+<li><strong>or str   start</strong> (<em>int</em>) – Starting unix timestamp or ledger ID of results.</li>
+<li><strong>or str   end</strong> (<em>int</em>) – Ending unix timestamp or ledger ID of results.</li>
+<li><strong>offset</strong> (<em>int</em>) – Result offset.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.query_ledgers">
+<code class="descname">query_ledgers</code><span class="sig-paren">(</span><em>lid</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.query_ledgers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns ledger info. See <a class="reference external" href="https://www.kraken.com/help/api#query-ledgers">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>lid</strong> – Comma delimited list of ledger ids to query info about. Max 2O.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Any of private method exceptions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.trade_volume">
+<code class="descname">trade_volume</code><span class="sig-paren">(</span><em>pair=''</em>, <em>fee_info=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.trade_volume" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets trade volume. See <a class="reference external" href="https://www.kraken.com/help/api#get-trade-volume">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pair</strong> – Comma delimited list of asset pairs to get fee info on.</li>
+<li><strong>fee_info</strong> – Include fee info in results?</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.add_order">
+<code class="descname">add_order</code><span class="sig-paren">(</span><em>pair</em>, <em>otype</em>, <em>ordertype</em>, <em>price</em>, <em>volume</em>, <em>price2=-1</em>, <em>leverage='none'</em>, <em>oflags=''</em>, <em>starttm=0</em>, <em>expiretm=0</em>, <em>userref=''</em>, <em>validate=False</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.add_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds exchange order to your account. See <a class="reference external" href="https://www.kraken.com/help/api#add-standard-order">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>pair</strong> – Asset pair.</li>
+<li><strong>otype</strong> – Type of order (buy/sell).</li>
+<li><strong>ordertype</strong> – Order type. Method tests right input to this parameter and thus may raise <code class="docutils literal"><span class="pre">ValueError</span></code>.
+Only following values are allowed - <code class="docutils literal"><span class="pre">market</span></code>, <code class="docutils literal"><span class="pre">stop-loss</span></code>, <code class="docutils literal"><span class="pre">take-profit</span></code>, <code class="docutils literal"><span class="pre">stop-loss-profit</span></code>,
+<code class="docutils literal"><span class="pre">stop-loss-profit-limit</span></code>, <code class="docutils literal"><span class="pre">stop-loss-limit</span></code>, <code class="docutils literal"><span class="pre">take-profit-limit</span></code>, <code class="docutils literal"><span class="pre">trailing-stop</span></code>, <code class="docutils literal"><span class="pre">trailing-stop-limit</span></code>
+<code class="docutils literal"><span class="pre">stop-loss-and-limit</span></code> and <code class="docutils literal"><span class="pre">settle-position</span></code>.
+:param price: Price, meaning depends on order type.
+:param volume: Order volume in lots.</li>
+<li><strong>price2</strong> – Price, meaning depends on order type.</li>
+<li><strong>leverage</strong> – Amount of desired leverage.</li>
+<li><strong>oflags</strong> – Comma separated flags: “viqc”, “fcib”, “fciq”, “nompp”.</li>
+<li><strong>starttm</strong> – Scheduled start time. Zero (now) or unix timestamp.</li>
+<li><strong>expiretm</strong> – Expiration time. Zero (never) or unix timestamp.</li>
+<li><strong>userref</strong> – User reference id.  32-bit signed number.</li>
+<li><strong>validate</strong> – Calidate inputs only. Do not submit order.</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first">Response as JSON object.</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last">Any of private method exceptions.</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="ziwia.Api.cancel_order">
+<code class="descname">cancel_order</code><span class="sig-paren">(</span><em>txid</em><span class="sig-paren">)</span><a class="headerlink" href="#ziwia.Api.cancel_order" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cancels order. See <a class="reference external" href="https://www.kraken.com/help/api#cancel-open-order">Kraken documentation</a>.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>txid</strong> – Transaction id.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body">Response as JSON object.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">Any of private method exceptions.</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">API reference</a><ul>
+<li><a class="reference internal" href="#methods">Methods</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="basic_usage.html"
+                        title="previous chapter">Basic Usage</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="todo.html"
+                        title="next chapter">To-Do List</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/reference.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="todo.html" title="To-Do List"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="basic_usage.html" title="Basic Usage"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ziwia 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Jan Malčák.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>

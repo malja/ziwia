@@ -1,0 +1,166 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Basic Usage &#8212; ziwia 0.2.0 documentation</title>
+    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '0.2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="API reference" href="reference.html" />
+    <link rel="prev" title="Installation" href="installation.html" /> 
+  </head>
+  <body>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="API reference"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ziwia 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="basic-usage">
+<span id="id1"></span><h1>Basic Usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h1>
+<p>Install ziwia package as described in <a class="reference internal" href="installation.html#installation"><span class="std std-ref">Installation</span></a>.</p>
+<p>After successful installation, import ziwia into your project.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ziwia</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">ziwia</span><span class="o">.</span><span class="n">Api</span><span class="p">()</span>
+<span class="n">server_time</span> <span class="o">=</span> <span class="n">api</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span> <span class="n">server_time</span><span class="p">[</span><span class="s2">&quot;unixtime&quot;</span><span class="p">]</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>This example shows simple API call to public Kraken API. Public API means, you do not have to authorize yourself with
+private and public API key. Data accessible in public API is mostly about server.</p>
+<p>We create an API class instance. You will always start API calls with this line. Next, we call <a class="reference internal" href="reference.html#ziwia.Api.time" title="ziwia.Api.time"><code class="xref py py-meth docutils literal"><span class="pre">ziwia.Api.time()</span></code></a>
+which connects to Kraken API and returns server time in two formats. First one is <a class="reference external" href="https://en.wikipedia.org/wiki/Unix_time">Unix timestamp</a>
+and the second one is <a class="reference external" href="http://freesoft.org/CIE/RFC/1945/14.htm">RFC 1123</a>.</p>
+<p>Last line just prints out server time as unix timestamp.</p>
+<p><strong>Note:</strong> Beside <a class="reference internal" href="reference.html#ziwia.Api.time" title="ziwia.Api.time"><code class="xref py py-meth docutils literal"><span class="pre">ziwia.Api.time()</span></code></a>, every API address Kraken exposes has its corresponding method in ziwia. For example address
+<em>/0/public/Ticker</em> is mapped to <a class="reference internal" href="reference.html#ziwia.Api.ticker" title="ziwia.Api.ticker"><code class="xref py py-meth docutils literal"><span class="pre">ziwia.Api.ticker()</span></code></a> method.
+As you can see, method name is made up of the part after last slash in address. Name is all lower-case and if address contains more than
+one word, words are separated by underscore. For example <em>/0/public/AssetPairs</em> translates as <a class="reference internal" href="reference.html#ziwia.Api.asset_pairs" title="ziwia.Api.asset_pairs"><code class="xref py py-meth docutils literal"><span class="pre">ziwia.Api.asset_pairs()</span></code></a>.</p>
+<div class="section" id="private-and-public">
+<h2>Private and public<a class="headerlink" href="#private-and-public" title="Permalink to this headline">¶</a></h2>
+<p>Kraken API is divided into two sections - public and private. Public API is accessible without any authorization and
+limits.</p>
+<p>For accessing private API, you have to provide your private and public API keys. They should be passed as parameters to <a class="reference internal" href="reference.html#ziwia.Api" title="ziwia.Api"><code class="xref py py-class docutils literal"><span class="pre">ziwia.Api</span></code></a> constructor.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ziwia</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">ziwia</span><span class="o">.</span><span class="n">Api</span><span class="p">(</span> <span class="s2">&quot;public_key&quot;</span><span class="p">,</span> <span class="s2">&quot;private_key&quot;</span> <span class="p">)</span>
+<span class="k">print</span><span class="p">(</span> <span class="n">api</span><span class="o">.</span><span class="n">balance</span><span class="p">()</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>This code retrives your account balance. To use it, change <code class="docutils literal"><span class="pre">public_key</span></code> and <code class="docutils literal"><span class="pre">private_key</span></code> to keys from your Kraken
+Account settings.</p>
+</div>
+<div class="section" id="timeout-and-proxy">
+<h2>Timeout and proxy<a class="headerlink" href="#timeout-and-proxy" title="Permalink to this headline">¶</a></h2>
+<p>Since version 0.2, ziwia supports proxy settings. All you have to do is to pass HTTP and HTTPS specific settings to
+fourth parameter of <a class="reference internal" href="reference.html#ziwia.Api" title="ziwia.Api"><code class="xref py py-class docutils literal"><span class="pre">ziwia.Api</span></code></a> constructor.</p>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">ziwia</span>
+
+<span class="n">proxy</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;http&quot;</span><span class="p">:</span> <span class="s2">&quot;your_proxy&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https&quot;</span><span class="p">:</span> <span class="s2">&quot;hattps_proxy&quot;</span>
+<span class="p">}</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">ziwia</span><span class="o">.</span><span class="n">Api</span><span class="p">(</span> <span class="s2">&quot;public_key&quot;</span><span class="p">,</span> <span class="s2">&quot;private_key&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">proxy</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>The third parameter is number of seconds before timeout.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Basic Usage</a><ul>
+<li><a class="reference internal" href="#private-and-public">Private and public</a></li>
+<li><a class="reference internal" href="#timeout-and-proxy">Timeout and proxy</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="installation.html"
+                        title="previous chapter">Installation</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="reference.html"
+                        title="next chapter">API reference</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="_sources/basic_usage.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="reference.html" title="API reference"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="installation.html" title="Installation"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="index.html">ziwia 0.2.0 documentation</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2017, Jan Malčák.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.6.5.
+    </div>
+  </body>
+</html>
